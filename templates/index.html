@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>STEGANOR</title>
+</head>
+<body>
+    <h1>STEGANOR</h1>
+    <form action="{{ url_for('encode') }}" method="post" enctype="multipart/form-data">
+        <label for="image">Select Image:</label>
+        <input type="file" name="image" required>
+        <label for="message">Enter Message:</label>
+        <textarea name="message" required></textarea>
+        <label for="password">Password (optional):</label>
+        <input type="password" name="password">
+        <button type="submit" style="color: black;">Encrypt</button>
+    </form>
+    <form action="{{ url_for('decode') }}" method="post" enctype="multipart/form-data">
+        <label for="image">Select Image:</label>
+        <input type="file" name="image" required>
+        <label for="password">Password (if encrypted):</label>
+        <input type="password" name="password">
+        <button type="submit" style="color: black;">Decrypt</button>
+    </form>
+</body>
+</html>
